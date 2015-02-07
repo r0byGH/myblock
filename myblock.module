@@ -3,6 +3,37 @@
  * myblock module
  */
 
+ // implements hook_permission
+ function myblock_permission() {
+  return array(
+    'access mypage' => array(
+      'title' => t('Access my page'),
+      'description' => t('Access my page on my site....'),
+    ),
+  );
+}
+ 
+ // Implements hook_menu()
+   function myblock_menu() {
+    $items['mypage'] = array(
+      'title' => 'My page',
+      'type' => MENU_NORMAL_ITEM,
+      'page callback' => 'myblock_mypage',
+      'access arguments' => array('access mypage'),
+      //'page arguments' => array(1, 'foo'),
+    );
+    return $items;
+  }
+  /*
+   * callback for hook_menu
+   */
+  function myblock_mypage() {
+    return '<b> this is a test <b>';
+  }
+  
+  
+  
+  
  function myblock_block_info() {
  
   $blocks['myblock'] = array(
