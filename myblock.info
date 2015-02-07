@@ -1,0 +1,7 @@
+name = My Block Module
+description = Create a custom module
+version = 7.x.1.0
+core = 7.x
+php = 5.2.4
+;package = Core
+;dependencies[] = 'ctools'

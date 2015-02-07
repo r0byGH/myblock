@@ -1,0 +1,28 @@
+<?php
+/*
+ * myblock module
+ */
+
+ function myblock_block_info() {
+ 
+  $blocks['myblock'] = array(
+    'info' => t('My custom block'),
+    // DRUPAL_CACHE_PER_ROLE will be assumed.
+  );
+
+  return $blocks;
+}
+ 
+function myblock_block_view($delta = '') {
+  // This example is adapted from node.module.
+  $block = array();
+
+  switch ($delta) {
+    case 'myblock':
+      $block['subject'] = t('This is my custom block');
+      $block['content'] = '<b>Test</b>'; //can just use html
+      break;
+
+  }
+  return $block;
+}
